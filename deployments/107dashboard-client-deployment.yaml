@@ -1,19 +1,21 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-        name: dashboard-client-deployment
+        name: dashboard-client
         labels:
-              app: dashboard-client-deployment
+              app: dashboard-client
 spec:
-    selector:
-            app: dashboard-client-deployment
-    template:
-            metadata:
-                    labels:
-                          app: dashboard-client-deployment
-    spec:
-        containers:
-                - name: dashboard-client--deployment
-                  image: michealbmullin/projdashboardcli
-                  ports:
-                     - containerPort:8080
+        replicas: 1
+        selector:
+                matchLabels:
+                        app: dashboard-client
+        template:
+                metadata:
+                        labels:
+                              app: dashboard-client
+                spec:
+                        containers:
+                            - name: dashboard-client
+                              image: michealbmullin/projdashboardcli
+                              ports:
+                                     - containerPort: 8080

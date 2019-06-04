@@ -5,15 +5,17 @@ metadata:
         labels:
               app: authentication-client
 spec:
-    selector:
-            app: authentication-client
-    template:
-            metadata:
-                    labels:
-                          app: authentication-client
-    spec:
-        containers:
-                - name: 
-                  image: michealbmullin/projauthenticationcli
-                  ports:
-                     - containerPort:8080
+        replicas: 1
+        selector:
+                matchLabels:
+                        app: authentication-client
+        template:
+                metadata:
+                        labels:
+                              app: authentication-client
+                spec:
+                        containers:
+                            - name: authentication-client
+                              image: michealbmullin/projauthenticationcli
+                              ports:
+                                 - containerPort: 8080

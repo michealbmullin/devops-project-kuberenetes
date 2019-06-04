@@ -1,19 +1,21 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-        name: dashboard-deployment
+        name: dashboard-service
         labels:
-              app: dashboard-deployment
+              app: dashboard-service
 spec:
+    replicas: 1
     selector:
-            app: dashboard-deployment
+            matchLabels:
+                    app: dashboard-service
     template:
             metadata:
                     labels:
-                          app: dashboard-deployment
-    spec:
-        containers:
-                - name: dashboard-deployment
-                  image: michealbmullin/projdashboardserv
-                  ports:
-                     - containerPort:3000
+                          app: dashboard-service
+            spec:
+                    containers:
+                        - name: dashboard-service
+                          image: michealbmullin/projdashboardserv
+                          ports:
+                              - containerPort: 3000

@@ -5,15 +5,17 @@ metadata:
         labels:
               app: gateway
 spec:
-    selector:
-            app: gateway
-    template:
-            metadata:
-                    labels:
-                          app: gateway
-    spec:
-        containers:
-                - name: gateway
-                  image: michealbmullin/projgateway
-                  ports:
-                     - containerPort:80
+        replicas: 1
+        selector:
+                matchLabels:
+                        app: gateway
+        template:
+                metadata:
+                        labels:
+                                app: gateway
+                spec:
+                        containers:
+                              - name: gateway
+                                image: michealbmullin/projgateway
+                                ports:
+                                       - containerPort: 80

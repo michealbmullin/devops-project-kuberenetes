@@ -5,15 +5,17 @@ metadata:
         labels:
               app: group-deployment
 spec:
-    selector:
-            app: group-deployment
-    template:
-            metadata:
-                    labels:
-                          app: group-deployment
-    spec:
-        containers:
-                - name: group-deployment
-                  image: michealbmullin/
-                  ports:
-                     - containerPort:3000
+        replicas: 1
+        selector:
+                matchLabels:
+                        app: group-deployment
+        template:
+                metadata:
+                        labels:
+                              app: group-deployment
+                spec:
+                        containers:
+                            - name: group-deployment
+                              image: michealbmullin/projgroupserv
+                              ports:
+                                    - containerPort: 3000

@@ -1,19 +1,21 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-        name: account-deployment
+        name: account-service
         labels:
-              app: account-deployment
+              app: account-service
 spec:
-    selector:
-            app: account-deployment
-    template:
-            metadata:
-                    labels:
-                          app: account-deployment
-    spec:
-        containers:
-                - name: account-deployment
-                  image: michealbmullin/
-                  ports:
-                     - containerPort:3000
+        replicas: 1
+        selector:
+              matchLabels:
+                      app: account-service
+        template:
+                metadata:
+                        labels:
+                              app: account-service
+                spec:
+                        containers:
+                            - name: account-service
+                              image: michealbmullin/
+                              ports:
+                                      - containerPort: 3000

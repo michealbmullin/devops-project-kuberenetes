@@ -1,19 +1,21 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-        name: email-deployment
+        name: email-service
         labels:
-              app: email-deployment
+              app: email-service
 spec:
-    selector:
-            app: email-deployment
-    template:
-            metadata:
-                    labels:
-                          app: email-deployment
-    spec:
-        containers:
-                - name: email-deployment
-                  image: michealbmullin/projemail
-                  ports:
-                     - containerPort:3000
+        replicas : 1
+        selector:
+               matchLabels:
+                          app: email-service
+        template:
+               metadata:
+                          labels:
+                                app: email-service
+               spec: 
+                          containers:
+                              - name: email-service
+                                image: michealbmullin/projemail
+                                ports:
+                                   - containerPort: 3000
