@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+        name: group-deployment
+        labels:
+              app: group-deployment
+spec:
+    selector:
+            app: group-deployment
+    template:
+            metadata:
+                    labels:
+                          app: group-deployment
+    spec:
+        containers:
+                - name: group-deployment
+                  image: michealbmullin/
+                  ports:
+                     - containerPort:3000

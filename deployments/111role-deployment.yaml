@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+        name: role-deployment
+        labels:
+              app: role-deployment
+spec:
+    selector:
+            app: role-deployment
+    template:
+            metadata:
+                    labels:
+                          app: role-deployment
+    spec:
+        containers:
+                - name: role-deployment
+                  image: michealbmullin/
+                  ports:
+                     - containerPort:3000

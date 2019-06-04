@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+        name: authentification-deployment
+        labels:
+              app: authentification-deployment
+spec:
+    selector:
+            app: authentification-deployment
+    template:
+            metadata:
+                    labels:
+                          app: authentification-deployment
+    spec:
+        containers:
+                - name: authentification-deployment
+                  image: michealbmullin/projauthenserv
+                  ports:
+                     - containerPort:3000

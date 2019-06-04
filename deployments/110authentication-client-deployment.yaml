@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+        name: authentication-client
+        labels:
+              app: authentication-client
+spec:
+    selector:
+            app: authentication-client
+    template:
+            metadata:
+                    labels:
+                          app: authentication-client
+    spec:
+        containers:
+                - name: 
+                  image: michealbmullin/projauthenticationcli
+                  ports:
+                     - containerPort:8080

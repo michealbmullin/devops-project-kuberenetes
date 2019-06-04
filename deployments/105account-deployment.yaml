@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+        name: account-deployment
+        labels:
+              app: account-deployment
+spec:
+    selector:
+            app: account-deployment
+    template:
+            metadata:
+                    labels:
+                          app: account-deployment
+    spec:
+        containers:
+                - name: account-deployment
+                  image: michealbmullin/
+                  ports:
+                     - containerPort:3000

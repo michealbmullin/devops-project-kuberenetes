@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+        name: mongo-service-deployment
+        labels:
+              app: mongo-service-deployment
+spec:
+    selector:
+            app: mongo-service-deployment
+    template:
+            metadata:
+                    labels:
+                          app: mongo-service-deployment
+    spec:
+        containers:
+                - name: mongo-deployment
+                  image: michealbmullin/projmongo
+                  ports:
+                     - containerPort:27017

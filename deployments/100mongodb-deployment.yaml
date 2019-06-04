@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Pod
+metadata:
+        name: mongo-deployment
+        labels:
+              app: mongo-deployment
+spec:
+    selector:
+            app: mongo-deployment
+    template:
+            metadata:
+                    labels:
+                          app: mongo-deployment
+    spec:
+        containers:
+                - name: mongo-deployment
+                  image: mongo:latest
+                  ports:
+                     - containerPort:27017
