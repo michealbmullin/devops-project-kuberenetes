@@ -1,19 +1,21 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-        name: mongo-service-deployment
+        name: mongo-service
         labels:
-              app: mongo-service-deployment
+              app: mongo-service
 spec:
-    selector:
-            app: mongo-service-deployment
-    template:
-            metadata:
-                    labels:
-                          app: mongo-service-deployment
-    spec:
-        containers:
-                - name: mongo-deployment
-                  image: michealbmullin/projmongo
-                  ports:
-                     - containerPort:27017
+     replicas: 1
+     selector:
+             matchLabels:
+                        app: mongo-service
+     template:
+              metadata:
+                     label:
+                         app: mongo-service
+              spec:
+                      containers:
+                              - name: mongo-service
+                                image: docker.io/michealbmullin/projmongo
+                                ports:
+                                        - containerPort: 27017
