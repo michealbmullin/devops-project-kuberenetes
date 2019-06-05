@@ -1,21 +1,21 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-        name: aes-encyption-service
+        name: aes-encryption-service
         labels:
-              app: aes-encyption-service
+              app: aes-encryption-service
 spec:
         replicas: 1
         selector:
                 matchLabels:
-                        app: aes-encyption-service
+                        app: aes-encryption-service
         template:
                 metadata:
                         labels:
-                                app: aes-encyption-service
+                                app: aes-encryption-service
                 spec:
                         containers:
-                              - name: aes-encyption-service
+                              - name: aes-encryption-service
                                 image: michealbmullin/projaesencrypt
                                 ports:
                                    - containerPort: 3000

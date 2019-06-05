@@ -17,5 +17,8 @@ spec:
                           containers:
                               - name: email-service
                                 image: michealbmullin/projemail
+                                envFrom:
+                                        - secretRef:
+                                                name: devop-secrets
                                 ports:
                                    - containerPort: 3000

@@ -16,6 +16,6 @@ spec:
                 spec:
                         containers:
                             - name: account-service
-                              image: michealbmullin/
+                              image: docker.io/michealbmullin/pojaccount
                               ports:
                                       - containerPort: 3000

@@ -1,21 +1,21 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-        name: session-token-deployment
+        name: session-token-service
         labels:
-              app: session-token-deployment
+              app: session-token-service
 spec:
         replicas: 1
         selector:
                 matchLabels:
-                        app: session-token-deployment
+                        app: session-token-service
         template:
                 metadata:
                         labels:
-                                app: session-token-deployment
+                                app: session-token-service
                 spec:
                         containers:
-                              - name: session-token-deployment
+                              - name: session-token-service
                                 image: michealbmullin/projsession
                                 ports:
                                    - containerPort: 3000
