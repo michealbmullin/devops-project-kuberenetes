@@ -17,8 +17,8 @@ spec:
                         containers:
                             - name: authentication-service
                               image: michealbmullin/projauthenserv
-                              envFrom:
-                                      - secretRef:
-                                              name: devop-secrets
+                              env:
+                               - name: ACTIVATION_LINK
+                                 value: http://35.228.153.44/authentication/api/activate
                               ports:
                                      - containerPort: 3000
