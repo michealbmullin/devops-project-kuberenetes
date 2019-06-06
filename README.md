@@ -35,3 +35,9 @@ docker-compose build
 docker-compose push
 kubectl --record deployment.apps/authentication-client set image deployment.v1.apps/authentication-client authentication-client=docker.io/michealbmullin/projauthenticationcli:${BUILD-NUMBER}
 etc
+
+#Known issues
+
+need to add jenkins to docker group to allow it to run docker commands
+need to run docker login in order to push to repo manually
+needs changing username to env varaible to allow different repositories to use
